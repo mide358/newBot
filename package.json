@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "iyimide adegunloye",
   "license": "ISC",
@@ -14,5 +14,8 @@
     "@slack/bolt": "^3.11.0",
     "dotenv": "^16.0.0",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

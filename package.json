@@ -1,0 +1,18 @@
+{
+  "name": "firstbolt",
+  "version": "1.0.0",
+  "description": "A bot built with bolt",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "iyimide adegunloye",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/bolt": "^3.11.0",
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15"
+  }
+}

@@ -7,6 +7,7 @@ require('../app.js');
 
 jest.mock('@slack/bolt', () => {
   const myApp = {
+    event: jest.fn(),
     message: jest.fn(),
     action: jest.fn(),
     start: jest.fn(),
@@ -23,5 +24,10 @@ describe('test', () => {
   it('test the bot', async () => {
     await app.start();
     expect(app.message).toBeCalledWith('hello', expect.any(Function));
+  });
+
+  it('test the bot', async () => {
+    await app.start();
+    expect(app.message).toBeCalledWith(/hey/i, expect.any(Function));
   });
 });

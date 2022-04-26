@@ -42,7 +42,7 @@ app.message(/hey|hi/i, async ({ message, say }) => {
             emoji: true,
           },
 
-          action_id: 'develop',
+          action_id: 'me_develop',
         },
       },
       {
@@ -59,7 +59,7 @@ app.message(/hey|hi/i, async ({ message, say }) => {
             emoji: true,
           },
 
-          action_id: 'joinMeet',
+          action_id: 'me_joinMeet',
         },
       },
       {
@@ -76,7 +76,7 @@ app.message(/hey|hi/i, async ({ message, say }) => {
             emoji: true,
           },
 
-          action_id: 'contribute',
+          action_id: 'me_contribute',
         },
       },
     ],
@@ -85,7 +85,7 @@ app.message(/hey|hi/i, async ({ message, say }) => {
 });
 
 // handle click response
-app.action('develop', async ({ body, ack, say }) => {
+app.action('me_develop', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(
@@ -94,7 +94,7 @@ app.action('develop', async ({ body, ack, say }) => {
   );
 });
 
-app.action('joinMeet', async ({ body, ack, say }) => {
+app.action('me_joinMeet', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(
@@ -102,7 +102,7 @@ app.action('joinMeet', async ({ body, ack, say }) => {
   `
   );
 });
-app.action('contribute', async ({ body, ack, say }) => {
+app.action('me_contribute', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(
@@ -141,7 +141,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
 
-            action_id: 'develop',
+            action_id: 'mem_develop',
           },
         },
         {
@@ -158,7 +158,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
 
-            action_id: 'joinMeet',
+            action_id: 'mem_joinMeet',
           },
         },
         {
@@ -175,7 +175,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
 
-            action_id: 'contribute',
+            action_id: 'mem_contribute',
           },
         },
         {
@@ -192,7 +192,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
             value: 'website',
-            action_id: 'helpWithWebsite',
+            action_id: 'mem_helpWithWebsite',
           },
         },
         {
@@ -209,7 +209,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
             value: 'docs',
-            action_id: 'docs',
+            action_id: 'mem_docs',
           },
         },
         {
@@ -226,7 +226,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
             value: 'mentorship',
-            action_id: 'mentorship',
+            action_id: 'mem_mentorship',
           },
         },
         {
@@ -243,7 +243,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
             value: 'implement_metrics',
-            action_id: 'implement_metrics',
+            action_id: 'mem_implement_metrics',
           },
         },
         {
@@ -260,7 +260,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
               emoji: true,
             },
             value: 'learn_something_else',
-            action_id: 'learn_something_else',
+            action_id: 'mem_learn_something_else',
           },
         },
       ],
@@ -273,7 +273,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
 });
 
 // handle the button click and show the responses
-app.action('develop', async ({ ack, say }) => {
+app.action('mem_develop', async ({ ack, say }) => {
   await ack();
   await say(
     `There are 5 Working Groups that develop metrics based on different aspects of open source community health: Risk, Value, Evolution, DEI, and Common.  More information about each of these groups can be found here: <https://handbook.chaoss.community/community-handbook/community-initiatives/working-groups> and the metrics are developed during our Working Group meetings.
@@ -281,7 +281,7 @@ app.action('develop', async ({ ack, say }) => {
   );
 });
 
-app.action('joinMeet', async ({ ack, say }) => {
+app.action('mem_joinMeet', async ({ ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(
@@ -290,7 +290,7 @@ app.action('joinMeet', async ({ ack, say }) => {
   );
 });
 
-app.action('contribute', async ({ ack, say }) => {
+app.action('mem_contribute', async ({ ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(
@@ -299,7 +299,7 @@ app.action('contribute', async ({ ack, say }) => {
   );
 });
 
-app.action('helpWithWebsite', async ({ ack, say }) => {
+app.action('mem_helpWithWebsite', async ({ ack, say }) => {
   await ack();
   await say(
     `The first step is getting to know our community! You can connect with us in any of the ways described in our Participate page here: https://chaoss.community/participate.
@@ -307,7 +307,7 @@ app.action('helpWithWebsite', async ({ ack, say }) => {
   );
 });
 
-app.action('docs', async ({ ack, say }) => {
+app.action('mem_docs', async ({ ack, say }) => {
   await ack();
   await say(
     `Please see this documentation: https://handbook.chaoss.community/community-handbook/contributing/documentation.
@@ -315,7 +315,7 @@ app.action('docs', async ({ ack, say }) => {
   );
 });
 
-app.action('mentorship', async ({ ack, say }) => {
+app.action('mem_mentorship', async ({ ack, say }) => {
   await ack();
   await say({
     // Choosing "Contribute through a mentorship program" triggers these nested radio buttons
@@ -354,7 +354,7 @@ app.action('mentorship', async ({ ack, say }) => {
               value: 'gsod',
             },
           ],
-          action_id: 'mentorship_selection',
+          action_id: 'mem_mentorship_selection',
         },
       },
     ],
@@ -363,7 +363,7 @@ app.action('mentorship', async ({ ack, say }) => {
 });
 
 // this handler is for the nested radio buttons above
-app.action('mentorship_selection', async ({ action, ack, say }) => {
+app.action('mem_mentorship_selection', async ({ action, ack, say }) => {
   await ack();
   console.log(action.selected_option.value);
   if (action.selected_option.value === 'outreachy') {
@@ -383,14 +383,14 @@ app.action('mentorship_selection', async ({ action, ack, say }) => {
   }
 });
 
-app.action('implement_metrics', async ({ ack, say }) => {
+app.action('mem_implement_metrics', async ({ ack, say }) => {
   await ack();
   await say(
     `We encourage you to join one of our Working Groups for specific questions about implementing your metrics. You can read more about them here: https://handbook.chaoss.community/community-handbook/community-initiatives/working-groups.`
   );
 });
 
-app.action('learn_something_else', async ({ ack, say }) => {
+app.action('mem_learn_something_else', async ({ ack, say }) => {
   await ack();
   await say(
     `We encourage you to read through our Community Handbook: https://handbook.chaoss.community/community-handbook/, and if you still can’t find what you’re looking for, feel free to ask your question in our #newcomers slack channel.`

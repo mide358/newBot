@@ -89,7 +89,7 @@ app.action('develop', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(
-    `There are 5 Working Groups that develop metrics based on different aspects of open source community health: Risk, Value, Evolution, DEI, and Common.  More information about each of these groups can be found here: <https://handbook.chaoss.community/community-handbook/community-initiatives/working-groups> and the metrics are developed during our Working Group meetings.
+    `There are 5 Working Groups that develop metrics based on different aspects of open source community health: Risk, Value, Evolution, DEI, and Common.  More information about each of these groups can be found here: https://handbook.chaoss.community/community-handbook/community-initiatives/working-groups and the metrics are developed during our Working Group meetings.
   `
   );
 });

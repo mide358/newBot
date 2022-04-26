@@ -6,14 +6,20 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
+    "server": "node server.js",
     "test": "jest"
   },
   "author": "iyimide adegunloye",
   "license": "ISC",
   "dependencies": {
     "@slack/bolt": "^3.11.0",
+    "bufferutil": "^4.0.6",
     "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "express": "^4.18.0",
+    "nodemon": "^2.0.15",
+    "socket.io": "^4.5.0",
+    "utf-8-validate": "^5.0.9",
+    "ws": "^8.5.0"
   },
   "devDependencies": {
     "jest": "^27.5.1"

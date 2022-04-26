@@ -124,7 +124,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `Welcome to *CHAOSS Community* <@${event.user.id}>! 🎉How would you like to get started? \n\nI want to..`,
+            text: `Welcome to *CHAOSS Community* <@${event.user}>! 🎉How would you like to get started? \n\nI want to..`,
           },
         },
         {
@@ -396,6 +396,8 @@ app.action('mem_learn_something_else', async ({ ack, say }) => {
     `We encourage you to read through our Community Handbook: https://handbook.chaoss.community/community-handbook/, and if you still can’t find what you’re looking for, feel free to ask your question in our #newcomers slack channel.`
   );
 });
+
+// **************************************
 //sends dm to new member when they join slack
 app.event('team_join', async ({ event, client, logger }) => {
   try {

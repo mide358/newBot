@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "server": "node server.js",
     "test": "jest"
   },
   "author": "iyimide adegunloye",

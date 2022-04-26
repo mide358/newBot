@@ -264,7 +264,7 @@ app.event('member_joined_channel', async ({ event, client, logger }) => {
           },
         },
       ],
-      text: `Welcome to the team, <@${event.user.id}>! 🎉.`,
+      text: `Welcome to the team, <@${event.user}>! 🎉.`,
     });
     logger.info(result);
   } catch (error) {

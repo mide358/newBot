@@ -1,4 +1,4 @@
-const { App, subtype } = require('@slack/bolt');
+const { App } = require('@slack/bolt');
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -376,6 +376,7 @@ app.event('team_join', async ({ event, client, logger }) => {
   }
 });
 */
+
 (async () => {
   // Start your app
   await app.start(process.env.PORT || 3000);

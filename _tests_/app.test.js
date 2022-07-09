@@ -23,7 +23,7 @@ describe('test', () => {
 
   it('test the welcome message bot', async () => {
     await app.start();
-    expect(app.message).toBeCalledWith('holla', expect.any(Function));
+    expect(app.message).toBeCalledWith(/holla/i, expect.any(Function));
   });
 
   it('test hey|hi response', async () => {

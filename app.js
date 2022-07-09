@@ -53,37 +53,37 @@ app.event('member_joined_channel', async ({ event, client }) => {
 //   }
 // });
 
-let usersStore = {};
+// let usersStore = {};
 
-app.message('intro', async ({ client, logger }) => {
-  // Call the users.list method using the WebClient
-  const result = await client.users.list();
-  saveUsers(result.members);
-  try {
-    for (let i = 0; i < userId.length; i++) {
-      await client.chat.postMessage({
-        channel: userId[i],
-        text: `Hello, I'm CHAOSS BOT!`,
-      });
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
+// app.message('intro', async ({ client, logger }) => {
+//   // Call the users.list method using the WebClient
+//   const result = await client.users.list();
+//   saveUsers(result.members);
+//   try {
+//     for (let i = 0; i < userId.length; i++) {
+//       await client.chat.postMessage({
+//         channel: userId[i],
+//         text: `Hello, I'm CHAOSS BOT!`,
+//       });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
-// Put users into the JavaScript object
-let userId = [];
+// // Put users into the JavaScript object
+// let userId = [];
 
-function saveUsers(usersArray) {
-  usersArray.forEach(function (user) {
-    // Key user info on their unique user ID
-    userId.push(user['id']);
+// function saveUsers(usersArray) {
+//   usersArray.forEach(function (user) {
+//     // Key user info on their unique user ID
+//     userId.push(user['id']);
 
-    // Store the entire user object (you may not need all of the info)
-    usersStore[userId] = user;
-    console.log(userId);
-  });
-}
+//     // Store the entire user object (you may not need all of the info)
+//     usersStore[userId] = user;
+//     console.log(userId);
+//   });
+// }
 
 (async () => {
   // Start your app

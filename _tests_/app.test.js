@@ -23,13 +23,26 @@ describe('test', () => {
 
   it('test the welcome message bot', async () => {
     await app.start();
-    expect(app.message).toBeCalledWith('hello', expect.any(Function));
+    expect(app.message).toBeCalledWith('holla', expect.any(Function));
   });
 
   it('test hey|hi response', async () => {
     await app.start();
     expect(app.message).toBeCalledWith(/hey|hi/i, expect.any(Function));
   });
+  it('test hey|hi response', async () => {
+    await app.start();
+    expect(app.message).toBeCalledWith(/new(?=\s+here)/i, expect.any(Function));
+  });
+
+  it('test the member_joined_channel event', async () => {
+    await app.start();
+    expect(app.event).toBeCalledWith(
+      'member_joined_channel',
+      expect.any(Function)
+    );
+  });
+  /*
   it('test the team_join event', async () => {
     await app.start();
     expect(app.event).toBeCalledWith('team_join', expect.any(Function));
@@ -80,4 +93,5 @@ describe('test', () => {
       expect.any(Function)
     );
   });
+  */
 });

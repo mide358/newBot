@@ -31,14 +31,38 @@ app.message(/new(?=\s+here)/i, async ({ message, client }) => {
 });
 
 // Member joined Product channel
-app.event('member_joined_channel', async ({ event, client }) => {
-  joinProduct.productProgram(event, client);
+app.event('member_joined_channel', async ({ event, message, client }) => {
+  // let back = joinBackend.backendChannel(message);
+  let currentChannel = event.channel;
+
+  try {
+    await client.chat.postMessage({
+      channel: currentChannel,
+      blocks: joinBackend.backendChannel(message),
+
+      text: `Welcome to SheCodeAfrica, <@${event.user}>! 🎉.`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
+// app.event('member_joined_channel', async ({ event, client }) => {
+//   console.log(event.channel);
+//   if (event.channel === 'C03NGRCE279') {
+//     console.log('new join channel here');
+//     joinProduct.productProgram(event, client);
+//   } else if (event.channel === 'C03BZP17E06') {
+//     console.log('team join channel here');
+//     joinBackend.backendChannel(event, client);
+//   }
+//   // joinProduct.productProgram(event, client);
+// });
+
 // Member joined Backend channel
-app.event('member_joined_channel', async ({ event, client }) => {
-  joinBackend.backendChannel(event, client);
-});
+// app.event('member_joined_channel', async ({ event, client }) => {
+//   joinBackend.backendChannel(event, client);
+// });
 
 // app.event('team_join', async ({ event, client, logger }) => {
 //   try {
